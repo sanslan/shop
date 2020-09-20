@@ -1,0 +1,30 @@
+<?php
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+
+class StatesSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        Schema::disableForeignKeyConstraints();
+        \App\Models\Data\State::truncate();
+        DB::table('states')->insert([
+            [
+                'id' => 1,
+                'city_id' =>1,
+            ],
+            [
+                'id' => 2,
+                'city_id' =>1,
+            ],
+        ]);
+        Schema::enableForeignKeyConstraints();
+    }
+}
